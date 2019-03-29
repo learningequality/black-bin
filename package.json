@@ -1,0 +1,25 @@
+{
+  "name": "black-bin",
+  "version": "0.0.1",
+  "description": "Wrapper around a binary package of the Black Python auto-formatter",
+  "main": "index.js",
+  "scripts": {},
+  "bin": {
+    "black": "./black"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learningequality/black-bin.git"
+  },
+  "keywords": [
+    "black",
+    "python",
+    "wrapper"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/learningequality/black-bin/issues"
+  },
+  "homepage": "https://github.com/learningequality/black-bin"
+}
