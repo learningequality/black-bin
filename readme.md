@@ -6,18 +6,15 @@ This silly little Node package exists as a way to provide [Black](https://github
 * https://github.com/ambv/black/issues/362
 * https://github.com/ambv/black/issues/585
 
-It currently bundles a binary built on a Mac using Python 3.7 and pyinstaller as follows:
+It currently bundles binaries built on Mac and Linux with [PyInstaller](https://www.pyinstaller.org/) as follows (assuming a Python >= 3.6 virtual environment):
 
 ```bash
 git clone https://github.com/ambv/black
 cd black
-git reset --hard v18.9b0
-pipenv --python 3
-pipenv shell
+git reset --hard 18.9b0
 pip install pyinstaller
-pyinstaller --clean -F --add-data blib2to3/:blib2to3 black
+pyinstaller --clean -F --add-data blib2to3/:blib2to3 black.py
 ```
 
-This created the binary file `black` included in this package, which should run on Mac and Linux systems. If necessary, we can also build a Windows package and include it, too.
-
+This created the binary files `black-mac` and `black-linux` are included in this package. If necessary, we can also build a Windows `black-win.exe` package and include that, too.
 

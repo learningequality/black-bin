@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Wrapper around a binary package of the Black Python auto-formatter",
   "main": "index.js",
-  "scripts": {},
   "bin": {
     "black": "./black"
   },
