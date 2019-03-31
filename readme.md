@@ -1,10 +1,31 @@
 
 # Black wrapper
 
-This silly little Node package exists as a way to provide [Black](https://github.com/ambv/black) to our developers and CI processes. For more info on why it's necsesary, see:
+## Background
 
-* https://github.com/ambv/black/issues/362
-* https://github.com/ambv/black/issues/585
+This little Node package exists as a way to provide [Black](https://github.com/ambv/black) to our developers and CI processes, regardless of what version of Python they are running. For more info on why we found it useful, see issues [#362](https://github.com/ambv/black/issues/362) and [#585](https://github.com/ambv/black/issues/585).
+
+This package also includes functionality for watching and re-running the formatter.
+
+Is it super weird to wrap a python application in a binary, check it into source control, and wrap that in a Node.js package? Yes.
+
+## Usage
+
+As defined in `package.json`, the primary entry point is the `black-fmt` command, which symlinks to `cli.js` on installation using `yarn` or `npm`.
+
+
+`black-fmt` takes the [same arguments as Black](https://github.com/ambv/black) and simply passes them through.
+
+Additionally, pass the optional `--watch` flag, and it will watch the same files and directories that are being formatted.
+
+For example:
+
+```bash
+black-fmt src --watch --check --exclude /node_modules/ --exclude ^.+?_special.py$
+```
+This will continually check all pythont files under src except for node_modules and any file that ends with '\_special.py'
+
+## Development
 
 It currently bundles binaries built on Mac and Linux with [PyInstaller](https://www.pyinstaller.org/) as follows (assuming a Python >= 3.6 virtual environment):
 
