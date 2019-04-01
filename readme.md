@@ -14,16 +14,17 @@ Is it super weird to wrap a python application in a binary, check it into source
 As defined in `package.json`, the primary entry point is the `black-fmt` command, which symlinks to `cli.js` on installation using `yarn` or `npm`.
 
 
-`black-fmt` takes the [same arguments as Black](https://github.com/ambv/black) and simply passes them through.
+`black-fmt` takes some of the [same arguments as Black](https://github.com/ambv/black), specifically `--exclude` and `--check`.
 
-Additionally, pass the optional `--watch` flag, and it will watch the same files and directories that are being formatted.
+Additionally, you can pass the optional `--watch` flag, and it will watch the same files and directories that are being formatted.
 
 For example:
 
 ```bash
-black-fmt src --watch --check --exclude /node_modules/ --exclude ^.+?_special.py$
+black-fmt --watch --check --exclude '/(\.git|node_modules)/' src docs
 ```
-This will continually check all pythont files under src except for node_modules and any file that ends with '\_special.py'
+
+This will continually check all python files under src and docs except for `node_modules` and the `.git` directory.
 
 ## Development
 
