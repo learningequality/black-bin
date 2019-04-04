@@ -13,7 +13,6 @@ Is it super weird to wrap a python application in a binary, check it into source
 
 As defined in `package.json`, the primary entry point is the `black-fmt` command, which symlinks to `cli.js` on installation using `yarn` or `npm`.
 
-
 `black-fmt` takes some of the [same arguments as Black](https://github.com/ambv/black), specifically `--exclude` and `--check`. 
 
 Black will be applied to the entire directory except for files matching the `exclude` regex. The default exclusion regex is:
@@ -32,7 +31,7 @@ black-fmt --watch --check
 
 ## Development
 
-It currently bundles binaries built on Mac and Linux with [PyInstaller](https://www.pyinstaller.org/) as follows (assuming a Python >= 3.6 virtual environment):
+This package currently bundles binaries built on Mac and Linux with [PyInstaller](https://www.pyinstaller.org/) as follows (assuming a Python >= 3.6 virtual environment):
 
 ```bash
 git clone https://github.com/ambv/black
@@ -43,7 +42,7 @@ pyinstaller --clean -F --add-data blib2to3/:blib2to3 black.py
 pyinstaller --clean -F --add-data blib2to3/:blib2to3 blackd.py
 ```
 
-This created the binary files `black-mac`, `blackd-mac`, `blackd-linux`, and `black-linux` are included in this package.
+This is the process that created the files `black-mac`, `blackd-mac`, `blackd-linux`, and `black-linux` are included in this package.
 
 If necessary, we can also build Windows `black-win.exe` and `blackd-win.exe` packages and include those, too.
 
