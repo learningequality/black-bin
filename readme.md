@@ -36,7 +36,10 @@ cd black
 git reset --hard 18.9b0
 pip install pyinstaller
 pyinstaller --clean -F --add-data blib2to3/:blib2to3 black.py
+pyinstaller --clean -F --add-data blib2to3/:blib2to3 blackd.py
 ```
 
-This created the binary files `black-mac` and `black-linux` are included in this package. If necessary, we can also build a Windows `black-win.exe` package and include that, too.
+This created the binary files `black-mac`, `blackd-mac`, `blackd-linux`, and `black-linux` are included in this package.
+
+If necessary, we can also build Windows `black-win.exe` and `blackd-win.exe` packages and include those, too.
 
