@@ -61,11 +61,16 @@ if (program.watch) {
   blackd.on("close", code => {
     log.info("black-fmt", `blackd process exited with code ${code}`);
   });
+  const excludeRegex = RegExp(exclude)
   // watch files
   chokidar
-    .watch("**/*.py", { ignored: RegExp(exclude) })
+    .watch("**/*.py", { ignored: excludeRegex })
     .on("change", relativePath => {
       const fullPath = path.resolve(relativePath);
+      // double-check whether this should be formatted or not
+      if (excludeRegex.test(fullPath)) {
+        return;
+      }
       // read in contents of python file
       fs.readFile(fullPath, (error, contents) => {
         if (error) throw error;
