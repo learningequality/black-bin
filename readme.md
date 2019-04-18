@@ -46,3 +46,9 @@ This is the process that created the files `black-mac`, `blackd-mac`, `blackd-li
 
 If necessary, we can also build Windows `black-win.exe` and `blackd-win.exe` packages and include those, too.
 
+Some notes on building under Linux:
+
+* Build on the [oldest possible distribution](https://stackoverflow.com/questions/17654363/pyinstaller-glibc-2-15-not-found) that is desired to be supported. The binaries included were built using Ubuntu 16.04.
+* Make sure to install the `python3.6-dev` package and all dependencies
+* If you're running in a virtualenv and getting an error related to `pyconfig.h` not being found, you can manually copy that file from the system python3.6 includes to your virtualenv includes.
+
