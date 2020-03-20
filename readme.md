@@ -1,3 +1,12 @@
+# March 20 2020: This component is now discouraged
+
+There are no active developers without access to Python 3.6+ on their dev machines.
+
+Please use one or more of the following work-arounds:
+
+* By running black through pre-commit, you can have a separate Python 3.6+ environment managed by pre-commit, while working on Python 2.7
+* Install black only when you are working with Python 3.6+ or in your IDE
+* Rest assured that black is run by CI or go and include it in CI, for instance see Kolibri's invocation of pre-commit in CI builds.
 
 # Black wrapper
 
